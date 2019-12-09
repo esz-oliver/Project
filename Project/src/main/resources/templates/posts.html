@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu"	layout:decorator="layouts/main">
+<head>
+	<title>Teszt</title>
+</head>
+<body>
+		
+	<div layout:fragment="loginContent">
+		
+		<article th:each="post : ${posts}">
+        <header>
+            <h1 th:text="${post.title}">Teszt cím</h1> 
+            <p th:text="${#dates.format(post.posted, 'yyyy.MM.dd HH:mm')}">Teszt dátum</p>
+        </header>
+    
+ 	    <section th:utext="${post.content}">
+            <p>Teszt szöveg</p>
+      		<p></p>
+        </section>
+        
+        <footer>
+            <address>
+                Beküldte: <span th:text="${post.user.firstName}">Anonymous</span>
+            </address>
+        </footer>
+        <hr/>
+    </article>
+
+	</div>
+
+</body>
+</html>
